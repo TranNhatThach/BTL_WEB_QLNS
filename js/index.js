@@ -1,7 +1,7 @@
-if (!location.pathname.endsWith('html/login.html')) {
+if (!location.pathname.endsWith('../login.html')) {
     if (!sessionStorage.getItem('loggedIn')) {
         // chưa đăng nhập -> gửi về trang login (replace để ko lưu lịch sử)
-        location.replace('html/login.html');
+        location.replace('../login.html');
     }
 }
 
