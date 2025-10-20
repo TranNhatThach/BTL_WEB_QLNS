@@ -63,116 +63,75 @@
 }
 
 h1 {
-  margin-top: 0;
-  color: #222;
+  text-align: center;
+  color: #1f4e5f;
 }
 
-/* Ô tìm kiếm */
-.search-box {
-  margin: 10px 0;
+.action-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.search-box input {
-  padding: 10px;
-  width: 300px;
+.action-bar input {
+  padding: 8px;
+  width: 250px;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
-
-.content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.content {
-  display: flex;
-  justify-content: space-between;   /* Giãn cách đều giữa bảng và ảnh */
-  align-items: flex-start;          /* Căn đầu trên cùng 1 hàng */
-  gap: 40px;                        /* Khoảng cách giữa bảng và ảnh */
-}
-/* --- Bảng lương & chấm công --- */
-table {
-  width: 70%;                   /* Bảng chiếm toàn bộ chiều rộng vùng chứa */
-  border-collapse: collapse;      /* Gộp viền giữa các ô liền kề cho gọn */
-  background: white;              /* Màu nền trắng */
-  border-radius: 10px;            /* Bo tròn góc bảng */
-  overflow: hidden;               /* Giữ bo tròn khi có nội dung tràn */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho bảng nổi bật */
-}
-
-/* --- Ô tiêu đề & ô dữ liệu --- */
-th, td {
-  border: 1px solid #ccc;         /* Viền mảnh màu xám cho từng ô */
-  padding: 12px;                  /* Khoảng cách trong ô giúp dễ đọc */
-  text-align: left;               /* Căn trái nội dung trong ô */
-}
-
-/* --- Ô tiêu đề (hàng đầu tiên) --- */
-th {
-  background-color: #253042;      /* Nền màu xanh đậm (giống sidebar) */
-  color: white;                   /* Chữ màu trắng nổi bật */
-  font-weight: 600;               /* Chữ đậm hơn một chút */
-}
-
-/* --- Tô màu xen kẽ cho các dòng dữ liệu --- */
-tr:nth-child(even) {
-  background-color: #f2f2f2;      /* Dòng chẵn màu xám nhạt */
-}
-
-/* --- Hiệu ứng khi rê chuột qua dòng --- */
-tr:hover {
-  background-color: #e6f7ff;      /* Đổi màu xanh nhạt khi hover */
-  transition: 0.3s;               /* Hiệu ứng mượt mà khi đổi màu */
-}
-/* nút mũi tên */
-.toggle-btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  transform-origin: center;
-  transition: transform 0.2s ease;
-  padding: 4px 6px;
-}
-
-/* xoay mũi tên khi bật */
-.toggle-btn.open {
-  transform: rotate(180deg);
-}
-
-/* hàng chi tiết mặc định ẩn */
-tr.details {
-  display: none;
-  background: #fbfcfd;
-}
-
-/* nội dung bên trong hàng chi tiết */
-.details-content {
-  padding: 10px 8px;
-  font-size: 14px;
-  color: #222;
-}
-
-/* dùng các class .status bạn đã có (doing, late, absent, done) */
-.details-content .status {
-  margin-right: 12px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-weight: 600;
-}
-
-/* Trạng thái */
-.status {
-  padding: 6px 10px;
-  border-radius: 5px;
+button {
+  background-color: #1f4e5f;
   color: white;
-  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: 0.3s;
 }
-.calendar img {
-  width: 220px;
-  border-radius: 20px;
-  height: 350px;
-  object-position: top;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+
+button:hover {
+  background-color: rgb(61, 144, 144);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+thead {
+  background-color: #1f4e5f;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.status {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.status.success {
+  color: #0a8f42;
+  background: #c8f7d8;
+}
+
+.status.late {
+  color: #c77b0a;
+  background: #fff0c2;
+}
+
+.status.absent {
+  color: #a00;
+  background: #ffd1d1;
 }

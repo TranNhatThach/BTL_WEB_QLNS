@@ -1,0 +1,7 @@
+[
+  { "ma_nv": "NV001", "hoten": "Trần Nhật Thạch", "gioitinh": "Nam", "phongban": "Marketing" },
+  { "ma_nv": "NV002", "hoten": "Phạm Văn Trường Vũ", "gioitinh": "Nam", "phongban": "Kế toán" },
+  { "ma_nv": "NV003", "hoten": "Nguyễn Kim Ngọc", "gioitinh": "Nữ", "phongban": "Nhân sự" },
+  { "ma_nv": "NV004", "hoten": "Nguyễn Văn Quyết", "gioitinh": "Nam", "phongban": "IT" },
+  { "ma_nv": "NV005", "hoten": "Nguyễn Chí Đạo", "gioitinh": "Nam", "phongban": "Kinh doanh" }
+]

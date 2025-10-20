@@ -17,140 +17,37 @@
             <a href="chamcong.html"style="background-color: rgb(61, 144, 144);">Chấm công</a>
             <a href="thongbao.html">Tin tức</a>
             <a href="chinhsach.html">Chính sách</a>
-            <a class="foot" href="login.html">Đăng xuất</a>
+            <a class="foot" href="/login.html">Đăng xuất</a>
         </div>
     </div>
      <main class="main-content">
-      <h1>Danh sách chấm công hôm nay</h1>
+        <h1>📅 Danh sách chấm công hôm nay</h1>
 
-      <!-- Ô tìm kiếm -->
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="🔍 Nhập tên nhân viên để tìm kiếm...">
-        <button type="button" id="searchButton">Tìm kiếm</button>
-      </div>
+        <div class="action-bar">
+            <input type="text" id="searchInput" placeholder="🔍 Nhập tên nhân viên...">
+            <button id="searchButton">Tìm kiếm</button>
+            <button id="exportButton">📤 Xuất Excel</button>
+        </div>
 
-      <!-- Bảng chấm công và ảnh lịch (cùng 1 hàng) -->
-      <div class="content">
-        <!-- Bảng chấm công -->
-        <table>
-  <thead>
-    <tr>
-      <th></th> <!-- cột mũi tên -->
-      <th>STT</th>
-      <th>Tên nhân viên</th>
-      <th>Chức vụ</th>
-      <th>Thời gian vào làm</th>
-      <th>Ngày công</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="toggle-cell">
-        <button class="toggle-btn" aria-expanded="false" aria-label="Xem trạng thái">▼</button>
-      </td>
-      <td>1</td>
-      <td>Trần Nhật Thạch</td>
-      <td>Trưởng phòng Marketing</td>
-      <td>8 giờ 5 phút</td>
-      <td>26</td>
-    </tr>
-
-    <!-- Hàng chi tiết (mặc định ẩn) -->
-    <tr class="details">
-      <td colspan="6">
-        <div class="details-content">
-          <span class="status doing">Đang làm</span>
-          <strong>Ghi chú:</strong> Đến muộn 5 phút sáng nay.
-        </div>
-      </td>
-    </tr>
-
-    <!-- Thêm các dòng khác tương tự -->
-    <tr>
-      <td class="toggle-cell">
-        <button class="toggle-btn" aria-expanded="false" aria-label="Xem trạng thái">▼</button>
-      </td>
-      <td>2</td>
-      <td>Phạm Văn Trường Vũ</td>
-      <td>Kế toán</td>
-      <td>Nghỉ Phép</td>
-      <td>25</td>
-    </tr>
-    <tr class="details">
-      <td colspan="6">
-        <div class="details-content">
-          <span class="status late">Có phép</span>
-          <strong>Ghi chú:</strong> Xin nghỉ phép hôm này.
-        </div>
-      </td>
-    </tr>
-     <tr>
-      <td class="toggle-cell">
-        <button class="toggle-btn" aria-expanded="false" aria-label="Xem trạng thái">▼</button>
-      </td>
-      <td>3</td>
-      <td>Nguyễn Kim Ngọc</td>
-      <td>Nhân Viên</td>
-      <td>8 giờ</td>
-      <td>25</td>
-    </tr>
-    <tr class="details">
-      <td colspan="6">
-        <div class="details-content">
-          <span class="status late">Đúng giờ</span>
-          <strong>Ghi chú:</strong> Vắng 1 buổi chiều hôm trước.
-        </div>
-      </td>
-    </tr>
-     <tr>
-      <td class="toggle-cell">
-        <button class="toggle-btn" aria-expanded="false" aria-label="Xem trạng thái">▼</button>
-      </td>
-      <td>4</td>
-      <td>Nguyễn Văn Quyết</td>
-      <td>Nhân Viên</td>
-      <td>8 giờ</td>
-      <td>25</td>
-    </tr>
-    <tr class="details">
-      <td colspan="6">
-        <div class="details-content">
-          <span class="status late">Tăng Ca</span>
-          <strong>Ghi chú:</strong> Tăng Ca Thêm 2 tiếng 
-        </div>
-      </td>
-    </tr>
-     <tr>
-      <td class="toggle-cell">
-        <button class="toggle-btn" aria-expanded="false" aria-label="Xem trạng thái">▼</button>
-      </td>
-      <td>2</td>
-      <td>Nguyễn Chí Đạo</td>
-      <td>Phó Phòng</td>
-      <td>8 giờ</td>
-      <td>25</td>
-    </tr>
-    <tr class="details">
-      <td colspan="6">
-        <div class="details-content">
-          <span class="status late">Đúng giờ</span>
-          <strong>Ghi chú:</strong> Xin phép nghỉ sớm.
-        </div>
-      </td>
-    </tr>
-
-    <!-- ... -->
-  </tbody>
-</table>
-
-        <!-- Ảnh lịch bên phải -->
-        <div class="calendar">
-          <img src="lich.jpg" alt="Lịch 2025">
-        </div>
-      </div>
+        <table id="attendanceTable">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã NV</th>
+                    <th>Họ tên</th>
+                    <th>Giới tính</th>
+                    <th>Phòng ban</th>
+                    <th>Thời gian chấm</th>
+                    <th>Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody id="attendanceBody">
+                <!-- Dữ liệu sẽ được thêm bằng JS -->
+            </tbody>
+        </table>
     </main>
-  </div>
 
-  <script src="../js/chamcong.js"></script>
+    <script src="../js/chamcong.js"></script>
+
 </body>
 </html>

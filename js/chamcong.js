@@ -1,32 +1,73 @@
-document.getElementById("searchInput").onkeyup = function () {
-  let keyword = this.value.toLowerCase();
-  // Lặp qua tất cả các hàng trong bảng (chỉ hàng dữ liệu, không phải hàng chi tiết)
-  document.querySelectorAll("tbody tr:not(.details)").forEach(row => {
-    let name = row.cells[2]?.textContent.toLowerCase() || "";
-    // Hiện hoặc ẩn tùy theo kết quả khớp tên
-    row.style.display = name.includes(keyword) ? "" : "none";
+// Giờ quy định: 8:00 sáng
+const gioQuyDinh = 8;
+const phutQuyDinh = 0;
 
-    // Ẩn luôn hàng chi tiết tương ứng nếu hàng chính bị ẩn
-    let next = row.nextElementSibling;
-    if (next?.classList.contains("details")) {
-      next.style.display = name.includes(keyword) ? next.style.display : "none";
+async function loadData() {
+  try {
+    const res = await fetch("../database.json");
+    const data = await res.json();
+    renderTable(data);
+  } catch (error) {
+    console.error("Lỗi khi tải dữ liệu:", error);
+  }
+}
+
+function renderTable(data) {
+  const tbody = document.getElementById("attendanceBody");
+  tbody.innerHTML = "";
+
+  data.forEach((nv, index) => {
+    // Giả lập thời gian chấm ngẫu nhiên (8h00 - 9h00)
+    const now = new Date();
+    const gioCham = 8 + Math.floor(Math.random() * 2); // 8 hoặc 9
+    const phutCham = Math.floor(Math.random() * 60);
+
+    const chamGio = `${gioCham.toString().padStart(2, "0")}:${phutCham.toString().padStart(2, "0")}`;
+    let trangThai = "";
+    let className = "";
+
+    if (gioCham > gioQuyDinh || (gioCham === gioQuyDinh && phutCham > phutQuyDinh)) {
+      const diff = (gioCham - gioQuyDinh) * 60 + (phutCham - phutQuyDinh);
+      if (diff > 120) {
+        trangThai = "Vắng";
+        className = "absent";
+      } else {
+        trangThai = `Muộn ${diff} phút`;
+        className = "late";
+      }
+    } else {
+      trangThai = "Đúng giờ";
+      className = "success";
     }
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${nv.ma_nv}</td>
+      <td>${nv.hoten}</td>
+      <td>${nv.gioitinh}</td>
+      <td>${nv.phongban}</td>
+      <td>${chamGio}</td>
+      <td><span class="status ${className}">${trangThai}</span></td>
+    `;
+    tbody.appendChild(tr);
   });
-};
+}
 
-document.querySelectorAll(".toggle-btn").forEach(btn => {
-  btn.onclick = () => {
-    let tr = btn.closest("tr");
-    let details = tr.nextElementSibling;
-    if (!details?.classList.contains("details")) return;
-
-    // Đảo trạng thái hiển thị
-    let isOpen = details.style.display === "table-row";
-    details.style.display = isOpen ? "none" : "table-row";
-
-    // Cập nhật giao diện mũi tên & thuộc tính truy cập
-    btn.textContent = isOpen ? "▼" : "▲";
-    btn.classList.toggle("open", !isOpen);
-    btn.setAttribute("aria-expanded", String(!isOpen));
-  };
+// 🔍 Tìm kiếm theo tên
+document.getElementById("searchButton").addEventListener("click", () => {
+  const keyword = document.getElementById("searchInput").value.toLowerCase();
+  const rows = document.querySelectorAll("#attendanceBody tr");
+  rows.forEach(row => {
+    const name = row.children[2].innerText.toLowerCase();
+    row.style.display = name.includes(keyword) ? "" : "none";
+  });
 });
+
+// 📤 Xuất Excel
+document.getElementById("exportButton").addEventListener("click", () => {
+  const wb = XLSX.utils.table_to_book(document.getElementById("attendanceTable"), { sheet: "ChamCong" });
+  XLSX.writeFile(wb, "ChamCong_HomNay.xlsx");
+});
+
+loadData();
