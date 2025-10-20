@@ -1,0 +1,119 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f6f6f6;
+}
+
+
+.sidebar {
+  width: 240px;
+  background: #2e3543;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  box-shadow: 5px 4px 10px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #444;
+  margin-bottom: 20px;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #e0e0e0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.nav a:hover,
+.nav a.active {
+  background: #1a75d2;
+}
+
+.sidebar .nav .foot {
+  margin-top: auto;
+  background: #e04d4d;
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.sidebar .nav .foot:hover {
+  background: #c03a3a;
+}
+
+
+.page {
+  margin-left: 240px;
+  padding: 30px 60px;
+  overflow-y: auto;
+  background: #f6f6f6;
+}
+
+.page h1{
+    text-align: center;
+}
+.page h2,
+.page h3 {
+  color: #2e3543;
+}
+
+.page h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.page h2 {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.page p,
+.page li {
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+ul {
+  margin-left: 25px;
+}
+
+/* Ẩn sidebar khi in */
+@media print {
+  .sidebar {
+    display: none;
+  }
+  .page {
+    margin: 0;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/quanlipb..css">
+</head>
+<body>
+        <div class="sidebar">
+        <div class="logo"> ☣ QUẢN LÍ NHÂN SỰ</div>
+        <div class="nav">
+            <a href="index.html"> Trang chủ </a>
+            <a href="nhansu.html" >Nhân viên</a>
+            <a href="luongnv.html">Quản lí lương</a>
+            <a href="quanlipb.html" style="background-color: rgb(61, 144, 144);">Quản lí phòng ban</a>
+            <a href="chamcong.html">Chấm công</a>
+            <a href="thongbao.html">Tin tức</a>
+            <a href="chinhsach.html">Chính sách</a>
+            <a class="foot" href="login.html">Đăng xuất</a>
+        </div>
+    </div>
+    <div class="content">
+      <h1>Quản lý phòng ban</h1>
+
+      <!-- Form thêm / sửa (sắp xếp ngang giống trang nhân sự) -->
+      <div class="form-container" style="margin-bottom: 16px">
+        <form id="pbForm" class="pb-form" onsubmit="return false;">
+          <input type="hidden" id="editIndex" value="" />
+          <input
+            class="inp"
+            type="text"
+            id="maPB"
+            placeholder="Mã phòng ban"
+            required
+          />
+          <input
+            class="inp"
+            type="text"
+            id="tenPB"
+            placeholder="Tên phòng ban"
+            required
+          />
+          <input
+            class="inp"
+            type="number"
+            id="soLuongNV"
+            placeholder="Số lượng nhân viên"
+            min="0"
+            required
+          />
+          <input class="inp" type="text" id="ghiChu" placeholder="Ghi chú" />
+          <button class="btn" id="btnSave" type="button">
+            Thêm / Cập nhật
+          </button>
+          <button
+            class="btn cancel"
+            id="btnCancel"
+            type="button"
+            style="display: none"
+          >
+            Hủy
+          </button>
+        </form>
+      </div>
+      <div class="pb-search">
+        <input
+          type="text"
+          id="searchPB"
+          placeholder="🔍 Tìm kiếm phòng ban..."
+        />
+      </div>
+
+      <!-- Bảng hiển thị -->
+      <div class="table-container">
+        <table id="pbTable" class="table">
+          <thead>
+            <tr>
+              <th>Mã phòng ban</th>
+              <th>Tên phòng ban</th>
+              <th>Số lượng nhân viên</th>
+              <th>Ghi chú</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- JS xử lý -->
+    <script src="../js/quanlipb.js"></script>
+</body>
+</html>

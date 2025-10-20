@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quản lý nhân viên</title>
+  <link rel="stylesheet" href="../css/nhansu.css">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+  <div class="layout">
+    <div class="sidebar">
+        <div class="logo"> ☣ QUẢN LÍ NHÂN SỰ</div>
+        <div class="nav">
+            <a href="index.html"> Trang chủ </a>
+            <a href="nhansu.html" style="background-color: rgb(61, 144, 144);" >Nhân viên</a>
+            <a href="luongnv.html">Quản lí lương</a>
+            <a href="quanlipb.html">Quản lí phòng ban</a>
+            <a href="chamcong.html">Chấm công</a>
+            <a href="thongbao.html">Tin tức</a>
+            <a href="chinhsach.html">Chính sách</a>
+            <a class="foot" href="login.html">Đăng xuất</a>
+        </div>
+    </div>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="left-controls">
+          <input id="searchBox" placeholder="🔍 Tìm theo tên hoặc mã NV..." />
+          <select id="filterPhongBan">
+            <option value="">-- Phòng ban --</option>
+          </select>
+          <select id="filterGioiTinh">
+            <option value="">-- Giới tính --</option>
+            <option>Nam</option>
+            <option>Nữ</option>
+            <option>Khác</option>
+          </select>
+        </div>
+        <div class="right-controls">
+          <button id="exportBtn" class="btn btn-outline">⬇ Xuất Excel</button>
+        </div>
+      </header>
+
+      <section class="content-panel">
+        <table id="employeeTable" class="table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Mã NV</th>
+              <th>Ảnh</th>
+              <th>Họ tên</th>
+              <th>Giới tính</th>
+              <th>Phòng ban</th>
+              <th>Chức vụ</th>
+              <th>Trạng thái</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody id="tblBody"></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <button id="floatingAdd" class="fab">➕</button>
+
+  <aside id="slidePanel" class="slide-panel" aria-hidden="true">
+    <div class="panel-header">
+      <h3 id="panelTitle">Thêm nhân viên</h3>
+      <button id="closePanel" class="icon-btn">✖</button>
+    </div>
+
+    <form id="employeeForm" class="panel-body">
+      <input type="hidden" id="editIndex" value="">
+
+      <div class="row-2">
+        <div>
+          <label>Mã NV *</label>
+          <input id="maNV" required>
+        </div>
+        <div>
+          <label>Họ tên *</label>
+          <input id="hoTen" required>
+        </div>
+      </div>
+
+      <div class="row-3">
+        <div>
+          <label>Giới tính</label>
+          <select id="gioiTinh">
+            <option>Nam</option>
+            <option>Nữ</option>
+            <option>Khác</option>
+          </select>
+        </div>
+        <div>
+          <label>Ngày sinh</label>
+          <input id="ngaySinh" type="date">
+        </div>
+        <div>
+          <label>Trạng thái</label>
+          <select id="trangThai">
+            <option>Đang làm việc</option>
+            <option>Thử việc</option>
+            <option>Đã nghỉ việc</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row-3">
+        <div>
+          <label>Phòng ban</label>
+          <div class="input-with-btn">
+            <select id="phongBanSelect"></select>
+            <button type="button" class="small-btn add-cat" data-cat="phongBan">＋</button>
+          </div>
+        </div>
+        <div>
+          <label>Chức vụ</label>
+          <div class="input-with-btn">
+            <select id="chucVuSelect"></select>
+            <button type="button" class="small-btn add-cat" data-cat="chucVu">＋</button>
+          </div>
+        </div>
+        <div>
+          <label>Trình độ</label>
+          <div class="input-with-btn">
+            <select id="trinhDoSelect"></select>
+            <button type="button" class="small-btn add-cat" data-cat="trinhDo">＋</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div>
+          <label>Chuyên môn</label>
+          <div class="input-with-btn">
+            <select id="chuyenMonSelect"></select>
+            <button type="button" class="small-btn add-cat" data-cat="chuyenMon">＋</button>
+          </div>
+        </div>
+        <div>
+          <label>Bằng cấp</label>
+          <div class="input-with-btn">
+            <select id="bangCapSelect"></select>
+            <button type="button" class="small-btn add-cat" data-cat="bangCap">＋</button>
+          </div>
+        </div>
+      </div>
+
+      <label>Số CCCD</label>
+      <input id="cccd">
+
+      <label>Hộ khẩu</label>
+      <input id="hoKhau">
+
+      <label>Ảnh đại diện (3x4)</label>
+      <div class="avatar-row">
+        <img id="avatarPreview" class="avatar-preview" src="" alt="avatar">
+        <input id="avatarFile" type="file" accept="image/*">
+        <button type="button" id="removeAvatar" class="small-btn danger">✖</button>
+      </div>
+
+      <div class="panel-actions">
+        <button type="submit" id="btnSave" class="btn primary">Lưu</button>
+        <button type="button" id="btnCancel" class="btn">Hủy</button>
+      </div>
+    </form>
+  </aside>
+  <div id="catModal" class="modal" aria-hidden="true">
+    <div class="modal-box">
+      <h4 id="catModalTitle">Thêm mục</h4>
+      <input id="catValue" placeholder="Nhập tên..." />
+      <div class="modal-actions">
+        <button id="catSave" class="btn primary">Lưu</button>
+        <button id="catClose" class="btn">Hủy</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="viewModal" class="modal" aria-hidden="true">
+    <div class="modal-box" style="width:600px; max-height:90vh; overflow:auto;">
+      <h3 style="margin-bottom:10px;">Thông tin nhân viên</h3>
+      <div id="viewContent"></div>
+      <div class="modal-actions">
+        <button id="closeView" class="btn">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/nhansu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/luongnv.css">
+    <title>Luong nhan vien</title>
+</head>
+<body>
+        <div class="sidebar">
+        <div class="logo"> ☣ QUẢN LÍ NHÂN SỰ</div>
+        <div class="nav">
+            <a href="index.html"> Trang chủ </a>
+            <a href="nhansu.html" >Nhân viên</a>
+            <a href="luongnv.html"style="background-color: rgb(61, 144, 144);">Quản lí lương</a>
+            <a href="quanlipb.html">Quản lí phòng ban</a>
+            <a href="chamcong.html">Chấm công</a>
+            <a href="thongbao.html">Tin tức</a>
+            <a href="chinhsach.html">Chính sách</a>
+            <a class="foot" href="login.html">Đăng xuất</a>
+        </div>
+    </div>
+        </div>
+    <div class="wrap">
+    <div class="card">
+      <header>
+        <div class="center">
+          <h1>Quản lý lương nhân viên</h1>
+          <div class="small muted">Tìm theo tên nhân viên và lọc theo tháng / năm</div>
+        </div>
+        <div class="controls">
+          <input id="searchInput" type="search" placeholder="Tìm tên nhân viên..." />
+          <select id="monthSelect" title="Chọn tháng">
+            <option value="all">Tất cả tháng</option>
+          </select>
+          <select id="yearSelect" title="Chọn năm">
+            <option value="all">Tất cả năm</option>
+          </select>
+          <div class="actions">
+            <button id="exportCsv">Xuất CSV</button>
+            <button id="resetBtn" class="secondary">Đặt lại</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="grid">
+        <div class="table-wrap">
+          <table id="salaryTable" aria-live="polite">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Họ và tên</th>
+                <th>Tháng</th>
+                <th>Năm</th>
+                <th>Lương cơ bản</th>
+                <th>Thưởng</th>
+                <th>Khấu trừ</th>
+                <th>Lương thực nhận</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="totals" id="totalsBox">
+          <div>
+            <div class="small">Tổng lương cơ bản</div>
+            <div id="totalBase">0</div>
+          </div>
+          <div>
+            <div class="small">Tổng thưởng</div>
+            <div id="totalBonus">0</div>
+          </div>
+          <div>
+            <div class="small">Tổng khấu trừ</div>
+            <div id="totalDeduct">0</div>
+          </div>
+          <div>
+            <div class="small">Tổng thực nhận</div>
+            <div id="totalNet">0</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="..\/js/luong.js"></script>
+</body>
+</html>

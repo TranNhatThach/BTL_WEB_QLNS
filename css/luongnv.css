@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f6f6f6;
+  }
+
+  .sidebar {
+    width: 240px;
+    background: #2e3543;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 10px;
+    box-shadow: 5px 4px 10px rgba(0,0,0,0.3);
+    border-radius: 10px;
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+  }
+
+  .nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nav a {
+    text-decoration: none;
+    color: #e0e0e0;
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: 0.2s;
+    ;
+  }
+ .sidebar .nav .foot {
+  margin-top: auto;
+  background: #e04d4d;
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px;
+  transition: 0.3s;
+}
+  .nav a:hover {
+    background: #1a75d2;
+  }
+
+  :root{--bg:#f4f6fb;
+    --card:#fff;
+    --muted:#0e0f10;
+    --accent:#4f46e5;
+}
+*{box-sizing:border-box;
+    font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;
+}
+.wrap{
+    max-width:1300px;
+    margin:36px auto;
+    padding:20px;
+}
+.card{
+    background:var(--card);
+    border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06);
+    padding:20px;
+}
+.home-btn {
+    background: rgb(105, 111, 137);
+    color: #eef1f5;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight:600;
+    font-size:15px;
+    transition:0.2s;
+}
+
+.home-btn:hover {
+    background: #3f3e47;
+    transform:translateX(-2px);
+    color:#fafafa;
+}
+
+header{ 
+   display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 12px; 
+}
+header .left{
+    align-self: flex-start; /* giữ link Trang chủ về phía trái */
+}
+header h1{
+    font-size:20px;
+    margin:0;
+    text-align:center;
+}
+
+.controls{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+}
+input[type="search"],select{
+    padding:8px 10px;
+    border:1px solid #e6e9f2;
+    border-radius:8px;
+    min-width:160px;
+}
+.grid{
+    margin-top:16px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+}
+.table-wrap{
+    overflow:auto;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+th,td{
+    padding:10px 12px;
+    text-align:left;
+    border-bottom:1px solid #eef2ff;
+}
+th{
+    font-weight:600;
+    background:linear-gradient(90deg, rgba(79,70,229,0.03), transparent);
+}
+.muted{
+    color:var(--muted);
+    font-size:13px;
+}
+.actions{
+    display:flex;
+    gap:8px;
+}
+button{
+    background:var(--accent);
+    color:#ffffff;border:none;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.2s;
+}
+button:hover{
+    opacity:0.9;
+    transform:scale(1.03);
+}
+button.secondary{
+    background:#64748b;
+}
+.center{
+
+    display: flex;
+    flex-direction: column; /* xếp theo cột thay vì hàng */
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* căn chữ con giữa */
+    gap: 4px; /* khoảng cách giữa tiêu đề và chữ nhỏ */
+
+
+}
+.totals{
+    margin-top:12px;
+    padding:12px;
+    border-radius:8px;
+    background:#f8fafc;
+    display:flex;gap:18px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.small{
+    font-size:13px;
+    color:var(--muted);
+}
+.container{
+    flex: 1;                 /* chiếm phần còn lại của body (body là flex) */
+    display: flex;
+    flex-direction: column;  /* header -> table -> footer theo cột */
+    gap: 16px;
+    padding: 20px;
+    overflow: hidden;        /* tránh cuộn thừa ngang */
+    min-width: 0;            /* cho con flex co lại đúng (prevents overflow) */
+}
+
+/* Table wrapper sẽ co dãn theo chiều cao còn lại và có scroll nếu nội dung nhiều */
+.table-wrap{
+    flex: 1 1 auto;
+    width: 100%;
+    overflow: auto;
+    min-width: 0;
+}
+
+/* Bảng luôn chiếm 100% chiều ngang của wrapper và chia ô đều */
+table{
+    width: 100%;
+    table-layout: fixed;    /* cố định kích thước cột dựa trên độ rộng ô */
+    border-collapse: collapse;
+}
+
+/* Tránh text tràn ô */
+th, td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
