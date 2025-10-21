@@ -1,7 +1,17 @@
 const MASTER_KEY = 'master_data_v1';
 
 const defaultMaster = {
-  phongBan: ["Kế toán","Kinh doanh","Nhân sự","Kỹ thuật"],
+ phongBan: [
+  "Ban Giám đốc",
+  "Nhân sự",
+  "Kế toán",
+  "Kinh doanh",
+  "Marketing",
+  "Kỹ thuật",
+  "Phát triển phần mềm",
+  "Hỗ trợ khách hàng",
+  "IT hạ tầng"
+],
   chucVu: ["Nhân viên","Trưởng nhóm","Trưởng phòng"],
   trinhDo: ["Trung cấp","Cao đẳng","Đại học"],
   chuyenMon: ["CNTT","Kế toán","Quản trị"],
