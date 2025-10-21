@@ -128,6 +128,12 @@
   padding: 5px 10px;
   font-size: 13px;
 }
+.btn.detail{
+    background-color: #28a745;
+}
+.btn.detail:hover{
+    background-color: #218838;
+}
 
 .btn.danger {
   background-color: #ff6666;
@@ -141,6 +147,9 @@
   background-color: #ccc;
   color: #333;
 }
+.btn.cancel:hover{
+    background-color: #999;
+}
 
 /* Bảng dữ liệu */
 .table-container {
@@ -148,6 +157,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   padding: 15px;
+  overflow-x: auto;
 }
 
 .table {
@@ -203,4 +213,40 @@
 .pb-search input:focus {
   border-color: #3399ff;
   outline: none;
+}
+/* CSS cho Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
 }

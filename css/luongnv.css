@@ -221,3 +221,27 @@ th, td{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 6px;
+}
+
+.pagination button {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  background: #f4f4f4;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagination button:hover:not(.active) {
+  background: #e6e6e6;
+}

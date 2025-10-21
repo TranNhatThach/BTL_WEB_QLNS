@@ -6,13 +6,18 @@ const news = [
     },
     {
         title: "Khen thưởng nhân viên xuất sắc tháng 9",
-        content: "Xin chúc mừng bạn Trần Nhật Thạch – Nhân viên xuất sắc tháng 9 vì những đóng góp nổi bật trong dự án quản lý nhân sự.",
+        content: "Xin chúc mừng bạn Lee min ho – Nhân viên xuất sắc tháng 9 vì những đóng góp nổi bật trong dự án quản lý nhân sự.",
         date: "Ngày đăng: 10/10/2025"
     },
     {
         title: "Cập nhật chính sách chấm công",
         content: "Từ tháng 11/2025, hệ thống chấm công sẽ được nâng cấp với tính năng mới: đăng nhập bằng khuôn mặt.",
         date: "Ngày đăng: 05/10/2025"
+    },
+    {
+        title: "Kỉ niệm 80 năm thành lập trường Giao thông vận tải ",
+        content: "[HƯỚNG TỚI KỶ NIỆM 80 NĂM TRUYỀN THỐNG TRƯỜNG ĐẠI HỌC GTVT]Trường Đại học Giao thông vận tải trong thời kỳ xây dựng CNXH ở Miền Bắc, đấu tranh giải phóng Miền Nam thống nhất đất nước ",
+        date: "Ngày đăng: 21/10/2025"
     }
 ];
 
