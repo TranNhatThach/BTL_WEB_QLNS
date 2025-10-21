@@ -42,3 +42,14 @@ const Data = {
     this.saveAll(m);
   }
 };
+
+const logoutLink = document.querySelector('.foot');
+if (logoutLink) {
+    logoutLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        // xóa thông tin đăng nhập
+        sessionStorage.removeItem('loggedIn');
+        // chuyển về login và thay thế entry lịch sử hiện tại
+        location.replace(logoutLink.href);
+    });
+}
