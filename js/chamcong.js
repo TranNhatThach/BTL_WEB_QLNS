@@ -19,7 +19,7 @@ function renderTable(data) {
   data.forEach((nv, index) => {
     // Giả lập thời gian chấm ngẫu nhiên (8h00 - 9h00)
     const now = new Date();
-    const gioCham = 8 + Math.floor(Math.random() * 2); // 8 hoặc 9
+    const gioCham = 7 + Math.floor(Math.random() * 2); // 8 hoặc 9
     const phutCham = Math.floor(Math.random() * 60);
 
     const chamGio = `${gioCham.toString().padStart(2, "0")}:${phutCham.toString().padStart(2, "0")}`;
