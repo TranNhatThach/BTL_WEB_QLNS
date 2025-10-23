@@ -8,21 +8,22 @@
   <link rel="stylesheet" href="../css/nhansu.css">
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
+<script src="../js/data.js"></script>
 
 <body>
   <div class="layout">
     <div class="sidebar">
-        <div class="logo"> ☣ QUẢN LÍ NHÂN SỰ</div>
-        <div class="nav">
-            <a href="../index.html"> Trang chủ </a>
-            <a href="nhansu.html" style="background-color: rgb(61, 144, 144);" >Nhân viên</a>
-            <a href="luongnv.html">Quản lí lương</a>
-            <a href="quanlipb.html">Quản lí phòng ban</a>
-            <a href="chamcong.html">Chấm công</a>
-            <a href="thongbao.html">Tin tức</a>
-            <a href="chinhsach.html">Chính sách</a>
-            <a class="foot" href="../login.html">Đăng xuất</a>
-        </div>
+      <div class="logo"> ☣ QUẢN LÍ NHÂN SỰ</div>
+      <div class="nav">
+        <a href="../index.html"> Trang chủ </a>
+        <a href="nhansu.html" style="background-color: rgb(61, 144, 144);">Nhân viên</a>
+        <a href="luongnv.html">Quản lí lương</a>
+        <a href="quanlipb.html">Quản lí phòng ban</a>
+        <a href="chamcong.html">Chấm công</a>
+        <a href="thongbao.html">Tin tức</a>
+        <a href="chinhsach.html">Chính sách</a>
+        <a class="foot" href="../login.html">Đăng xuất</a>
+      </div>
     </div>
 
     <main class="main-area">
@@ -156,7 +157,8 @@
 
       <label>Hộ khẩu</label>
       <input id="hoKhau">
-
+      <label>Lương cơ bản</label>
+      <input id="luongCoBan" type="number" min="0" placeholder="VD: 8000000">
       <label>Ảnh đại diện (3x4)</label>
       <div class="avatar-row">
         <img id="avatarPreview" class="avatar-preview" src="" alt="avatar">
@@ -191,7 +193,6 @@
     </div>
   </div>
 
-  <script src="../js/data.js"></script>
   <script src="../js/nhansu.js"></script>
 </body>
 
